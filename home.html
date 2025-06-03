@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home - Esame di Maturità</title>
+  <style>
+    :root {
+      --primary: #0077cc;
+      --dark: #002f4b;
+      --light: #f0f4f8;
+      --accent: #00c896;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #eaf6ff, #ffffff);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(120deg, var(--primary), var(--accent));
+      color: white;
+      text-align: center;
+      padding: 100px 20px 70px;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      position: relative;
+      animation: slideDown 1s ease-in-out;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 120%;
+      height: 100px;
+      bottom: -50px;
+      left: -10%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.2), transparent);
+      transform: rotate(-2deg);
+    }
+
+    header h1 {
+      font-size: 3.5em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.5em;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: white;
+      padding: 15px 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: scale(1.1) rotate(-1deg);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    main {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: auto;
+      background-color: white;
+      border-radius: 20px;
+      padding: 50px 30px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      transform: translateY(40px);
+      opacity: 0;
+      transition: all 0.8s ease;
+    }
+
+    .section.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .section h2 {
+      font-size: 2.5em;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      font-size: 1.3em;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 20px;
+      text-align: center;
+      background-color: var(--dark);
+      color: white;
+      font-size: 0.9em;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+
+      .section h2 {
+        font-size: 2em;
+      }
+
+      nav a {
+        font-size: 1em;
+        margin: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Esame di Maturità 2025</h1>
+    <p>La mia presentazione e i progetti PCTO</p>
+  </header>
+
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="MAST.html">Mast</a>
+    <a href="CLAUGER.html">Clauger</a>
+    <a href="Tekne.html">Tekne</a>
+    <a href="OpenFiber.html">OpenFiber</a>
+  </nav>
+
+  <main>
+    <div class="section fade-in-on-scroll">
+      <h2>I miei PCTO</h2>
+      <p>Durante il mio percorso scolastico ho partecipato a progetti entusiasmanti in collaborazione con aziende reali. Scopri le esperienze più significative che mi hanno fatto crescere e preparato al mondo del lavoro.</p>
+    </div>
+  </main>
+
+  <footer>
+    2025 - Riccardo Vecchiolla -
+   </footer>
+
+  <script>
+    // Effetto animazione al comparire
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
