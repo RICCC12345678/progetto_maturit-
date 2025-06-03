@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Esperienze Estere - PCTO</title>
+  <style>
+    :root {
+      --primary: #0077cc;
+      --accent: #00c896;
+      --light: #f0f4f8;
+      --dark: #002f4b;
+    }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--light);
+      color: #333;
+      overflow-x: hidden;
+    }
+    header {
+      background: linear-gradient(120deg, var(--primary), var(--accent));
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      animation: slideDown 1s ease-out;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: white;
+      padding: 15px 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: scale(1.1) rotate(-1deg);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    main {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .split-container {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .card {
+      background-color: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      flex: 1 1 400px;
+      min-width: 300px;
+      max-width: 550px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .card img:hover {
+      transform: scale(1.05);
+    }
+    .card h2 {
+      font-size: 1.8em;
+      color: var(--primary);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .card p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #444;
+      text-align: center;
+    }
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      text-align: center;
+      background-color: var(--dark);
+      color: white;
+      font-size: 0.9em;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+    }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+      .card h2 {
+        font-size: 1.5em;
+      }
+      nav a {
+        font-size: 0.9em;
+        margin: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Esperienze Estere</h1>
+    <p>PCTO a Cambridge e Dublino</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="MAST.html">Mast</a>
+    <a href="CLAUGER.html">Clauger</a>
+    <a href="Tekne.html">Tekne</a>
+    <a href="OpenFiber.html">OpenFiber</a>
+    <a href="CD.html">PCTO all'estero</a>
+  </nav>
+
+  <main>
+    <div class="split-container">
+
+      <div class="card">
+        <a href="cambridge.jpg" target="_blank">
+          <img src="cambridge.jpg" alt="Esperienza a Cambridge" />
+        </a>
+        <h2>Cambridge</h2>
+        <p>Esperienza formativa in Inghilterra, con corsi di lingua intensivi, attività culturali e visita della città universitaria. Una full immersion nella cultura britannica, migliorando l'inglese e conoscendo studenti da tutto il mondo.</p>
+      </div>
+
+      <div class="card">
+        <a href="dublino.jpg" target="_blank">
+          <img src="dublino.jpg" alt="Esperienza a Dublino" />
+        </a>
+        <h2>Dublino</h2>
+        <p>Progetto PCTO in Irlanda con stage in aziende locali, apprendimento sul campo, uso dell'inglese in contesti lavorativi reali e scoperta della cultura irlandese. Un'occasione per crescere professionalmente e personalmente.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    2025 - Riccardo Vecchiolla -
+  </footer>
+
+  <script>
+    // Animazione su scroll per far comparire le card
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    cards.forEach(card => observer.observe(card));
+  </script>
+
+</body>
+</html>
